@@ -15,6 +15,12 @@ export class UserController {
         return this.userService.findAll(username);
     }
 
+    @Get(':id')
+    @HttpCode(200)
+    findOne(@Param('id') id: string) {
+        return this.userService.findById(+id);
+    }
+
     @Post()
     @HttpCode(201)
     create(@Body() createUserDto: CreateUserDto) {
